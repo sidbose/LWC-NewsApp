@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Top Headlines">
+        <div class="slds-var-m-around_medium">
+            <template if:true={articles}>
+                <template for:each={articles} for:item="article">
+                    <c-news-item key={article.author} article={article} onnewsclicked={newsClickedHanderParent}>
+                    </c-news-item>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,17 @@
+<template>
+    <a href="#" onclick={newsClickedHandler}>
+        <template if:true={article}>
+            <lightning-layout vertical-align="center">
+                <lightning-layout-item>
+                    <span class="slds-avatar slds-avatar_large news_image">
+                        <img alt="No image" src={article.urlToImage} title="Article Image" />
+                    </span>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                    <p>{article.author}</p>
+                    <p>{article.title}</p>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+    </a>
+</template>

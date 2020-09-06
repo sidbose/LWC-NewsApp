@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>newsSelected</masterLabel>
+    <isExposed>true</isExposed>
+    <description>This channel delivers single news</description>
+    <lightningMessageFields>
+        <fieldName>news</fieldName>
+        <description>This is the news which is clicked</description>
+    </lightningMessageFields>
+</LightningMessageChannel>
