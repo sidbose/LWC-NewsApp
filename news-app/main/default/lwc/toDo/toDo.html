@@ -1,0 +1,22 @@
+<template>
+    <div class="main_container">
+        <h3 class="slds-align_absolute-center slds-text-align_center container">Your To Do List</h3>
+        <lightning-layout class="slds-align_absolute-center slds-text-align_center container" multiple-rows="true">
+            <lightning-layout-item size="11">
+                <lightning-input variant="label-hidden" label=" " type="text" maxlength="200"
+                    placeholder="Write your task">
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="1">
+                <lightning-button icon-name="utility:add" onclick={addtohandler}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+        <template if:true={todos}>
+            <ul class="slds-list_ordered">
+                <template for:each={todos} for:item="todo">
+                    <li key={todo.ToDo_Item__c}>{todo.ToDo_Item__c}</li>
+                </template>
+            </ul>
+        </template>
+    </div>
+</template>
