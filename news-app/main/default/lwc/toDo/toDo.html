@@ -1,22 +1,33 @@
 <template>
     <div class="main_container">
-        <h3 class="slds-align_absolute-center slds-text-align_center container">Your To Do List</h3>
+        <h3
+            class="heading_text slds-align_absolute-center slds-text-align_center container slds-text-heading_small slds-p-bottom_xx-small">
+            Your To Do List
+        </h3>
         <lightning-layout class="slds-align_absolute-center slds-text-align_center container" multiple-rows="true">
-            <lightning-layout-item size="11">
-                <lightning-input variant="label-hidden" label=" " type="text" maxlength="200"
-                    placeholder="Write your task">
+            <lightning-layout-item size="10">
+                <lightning-input class="slds-p-left_xx-small slds-p-right_xx-small" variant="label-hidden" label=" "
+                    type="text" maxlength="200" placeholder="Write your task">
                 </lightning-input>
             </lightning-layout-item>
             <lightning-layout-item size="1">
-                <lightning-button icon-name="utility:add" onclick={addtohandler}></lightning-button>
+                <lightning-button class="slds-p-right_xxx-small" icon-name="utility:add" onclick={addtohandler}>
+                </lightning-button>
             </lightning-layout-item>
         </lightning-layout>
         <template if:true={todos}>
-            <ul class="slds-list_ordered">
-                <template for:each={todos} for:item="todo">
-                    <li key={todo.ID}>{todo.ToDo_Item__c}</li>
-                </template>
-            </ul>
+            <template for:each={todos} for:item="todo">
+                <div class="slds-p-around_x-small lgc-bg" key={todo.ID}>
+                    <span class="todoitem slds-p-right_medium slds-p-left_medium"
+                        key={todo.ID}>{todo.ToDo_Item__c}</span>
+                    <lightning-button-icon-stateful icon-name="utility:success" selected={successState}
+                        onclick={handleLikeButtonClick} alternative-text="complete">
+                    </lightning-button-icon-stateful>
+                    <lightning-button-icon-stateful icon-name="utility:delete" selected={deleteState}
+                        onclick={handleAnswerButtonClick} alternative-text="delete" class="slds-m-left_xx-small">
+                    </lightning-button-icon-stateful>
+                </div>
+            </template>
         </template>
     </div>
 </template>

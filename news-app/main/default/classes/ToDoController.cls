@@ -10,7 +10,7 @@ public with sharing class ToDoController {
     @AuraEnabled
     public static List<ToDoList__c> getToDoItems() {
         System.debug('Inside getToDoItems()');
-        return [ SELECT ToDo_Item__c,Completed__c FROM ToDoList__c WHERE OwnerId=:UserInfo.getUserId() ];
+        return [ SELECT ToDo_Item__c,Completed__c FROM ToDoList__c WHERE OwnerId=:UserInfo.getUserId() ORDER BY createdDate ];
     }
 
     @AuraEnabled

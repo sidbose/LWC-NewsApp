@@ -3,3 +3,14 @@
     overflow-y: scroll;
     width: 682px;
 }
+
+.heading_text {
+    font-size: medium;
+    color: #3266ba;
+    font-weight: bold;
+}
+
+.todoitem {
+    color: #2793ec;
+    font-size: medium;
+}
