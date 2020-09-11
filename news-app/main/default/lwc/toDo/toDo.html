@@ -14,7 +14,7 @@
         <template if:true={todos}>
             <ul class="slds-list_ordered">
                 <template for:each={todos} for:item="todo">
-                    <li key={todo.ToDo_Item__c}>{todo.ToDo_Item__c}</li>
+                    <li key={todo.ID}>{todo.ToDo_Item__c}</li>
                 </template>
             </ul>
         </template>
