@@ -4,6 +4,8 @@ import { reduceErrors } from 'c/ldsUtils';
 
 import addToDoItem from '@salesforce/apex/ToDoController.addToDoItem'
 import getToDoItems from '@salesforce/apex/ToDoController.getToDoItems'
+import updateToDoItem from '@salesforce/apex/ToDoController.updateToDoItem'
+import deleteTodoItem from '@salesforce/apex/ToDoController.deleteTodoItem'
 
 export default class ToDo extends LightningElement {
     // @track is required for array and object properties 
@@ -44,6 +46,36 @@ export default class ToDo extends LightningElement {
             .catch((err) => {
                 this.showToastNotification(err);
             });
+    }
+
+    completedHandler(event) {
+        const ele = event.currentTarget;
+        updateToDoItem({
+            todoid: event.currentTarget.dataset.id,
+            completed: true
+        })
+            .then(res => {
+                ele.parentNode.classList.add('todo_completed');
+            })
+            .catch(error => {
+                this.showToastNotification(error);
+            })
+    }
+
+    deleteHandler(event) {
+        deleteTodoItem({ todoID: event.currentTarget.dataset.id })
+            .then(res => {
+                getToDoItems()
+                    .then((result) => {
+                        if (result) {
+                            this.todos = result;
+                        }
+                    })
+                    .catch((error) => {
+                        this.showToastNotification(error);
+                    })
+            })
+            .catch(error => this.showToastNotification(error));
     }
 
     //helper method

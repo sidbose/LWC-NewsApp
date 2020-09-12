@@ -14,3 +14,7 @@
     color: #2793ec;
     font-size: medium;
 }
+
+.todo_completed {
+    text-decoration: line-through;
+}

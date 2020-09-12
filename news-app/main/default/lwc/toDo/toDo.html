@@ -17,15 +17,19 @@
         </lightning-layout>
         <template if:true={todos}>
             <template for:each={todos} for:item="todo">
-                <div class="slds-p-around_x-small lgc-bg" key={todo.ID}>
-                    <span class="todoitem slds-p-right_medium slds-p-left_medium"
-                        key={todo.ID}>{todo.ToDo_Item__c}</span>
-                    <lightning-button-icon-stateful icon-name="utility:success" selected={successState}
-                        onclick={handleLikeButtonClick} alternative-text="complete">
-                    </lightning-button-icon-stateful>
-                    <lightning-button-icon-stateful icon-name="utility:delete" selected={deleteState}
-                        onclick={handleAnswerButtonClick} alternative-text="delete" class="slds-m-left_xx-small">
-                    </lightning-button-icon-stateful>
+                <div class="slds-p-around_x-small lgc-bg" key={todo.Id}>
+                    <span class="todoitem slds-p-right_medium slds-p-left_medium" key={todo.Id}>
+                        {todo.ToDo_Item__c}</span>
+                    <span data-id={todo.Id} onclick={completedHandler}>
+                        <lightning-button-icon-stateful icon-name="utility:success" selected={successState}
+                            alternative-text="complete">
+                        </lightning-button-icon-stateful>
+                    </span>
+                    <span data-id={todo.Id} onclick={deleteHandler}>
+                        <lightning-button-icon-stateful icon-name="utility:delete" selected={deleteState}
+                            onclick={handleAnswerButtonClick} alternative-text="delete" class="slds-m-left_xx-small">
+                        </lightning-button-icon-stateful>
+                    </span>
                 </div>
             </template>
         </template>
