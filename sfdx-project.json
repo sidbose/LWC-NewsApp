@@ -1,11 +1,18 @@
 {
-  "packageDirectories": [
-    {
-      "path": "news-app",
-      "default": true
+    "packageDirectories": [
+        {
+            "path": "news-app",
+            "default": true,
+            "package": "News App",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT"
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "49.0",
+    "packageAliases": {
+        "News App": "0Ho2w000000TNUnCAO",
+        "News App@0.1.0-1": "04t2w000008J8BxAAK"
     }
-  ],
-  "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "49.0"
 }
